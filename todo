@@ -1,0 +1,8 @@
+Solitare Todo list:
+
+- break out components further
+  - make div that holds deck & card stacks
+  - each stack should have an icon for that stack (maybe use fontawesome ?)
+
+
+
