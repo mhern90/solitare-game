@@ -2,7 +2,8 @@ import {
     NEW_DECK,
     NEW_DECK_ERROR,
     DRAW_THREE,
-    RESTORE_GAME
+    RESTORE_GAME,
+    TOGGLE_FLIPPED
 } from "../constants";
 
 export const getNewDeck = () => {
@@ -50,4 +51,8 @@ export const restoreGame = config => ({
 
 export const drawThree = () => ({
     type: DRAW_THREE
+});
+
+export const toggleFlippedStatus = id => ({
+    type: TOGGLE_FLIPPED
 });

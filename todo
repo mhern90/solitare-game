@@ -1,8 +1,11 @@
 Solitare Todo list:
 
-- break out components further
-  - make div that holds deck & card stacks
-  - each stack should have an icon for that stack (maybe use fontawesome ?)
+Add Drag + Drop feature
+Add "Top Card / isDraggable" property to cards in the deck / pile
+Add logic to where you can drop the card. 
+    Stacks -> if empty, must be an ace else, must be the next card in order
+    Piles --> mu
+
 
 
 

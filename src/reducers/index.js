@@ -4,7 +4,8 @@ import {
     NEW_DECK,
     NEW_DECK_ERROR,
     DRAW_THREE,
-    RESTORE_GAME
+    RESTORE_GAME,
+    TOGGLE_FLIPPED
 } from "../constants";
 
 export default function(state = {}, action) {
@@ -20,6 +21,11 @@ export default function(state = {}, action) {
 
     if (action.type === NEW_DECK_ERROR) {
         return Object.assign({}, state, { error: action.deck });
+    }
+
+    // TODO - figure out stuff
+    if (action.type === TOGGLE_FLIPPED) {
+        return {};
     }
 
     if (action.type === DRAW_THREE) {
@@ -38,8 +44,11 @@ export default function(state = {}, action) {
             cards.splice(0, 1);
         }
 
+        newHand.forEach(card => (card.isFlipped = false));
+
         // push the old hand back to the bottom of the deck
         if (oldHand.length > 0) {
+            oldHand.forEach(card => (card.isFlipped = true));
             cards = [...cards, ...oldHand];
         }
 
@@ -58,6 +67,9 @@ export default function(state = {}, action) {
 }
 
 const makeDeck = deck => {
+    deck.cards.forEach(card => {
+        card.isFlipped = true;
+    });
     let initialState = {
         deck,
         hand: [],
@@ -85,6 +97,7 @@ const initializePiles = cards => {
         const end = i + 1;
         let pile = [...remaining.slice(0, end)];
         remaining.splice(0, end);
+        pile[i].isFlipped = false;
         piles.push({ id: i, cards: pile });
     }
 

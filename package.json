@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@fortawesome/react-fontawesome": "^0.1.4",
         "eslint-plugin-import": "^2.16.0",
         "eslint-plugin-react": "^7.12.4",
         "lodash": "^4.17.4",

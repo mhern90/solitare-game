@@ -3,9 +3,8 @@ import styled from "styled-components";
 import Card from "../../shared/Card";
 
 const StyledDeck = styled.div`
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    float: left;
+    padding: 10px 0 0 10px;
 
     #drawPile {
         float: left;
@@ -33,10 +32,11 @@ const Deck = ({ hand, drawThree }) => {
                 {hand.length > 0 &&
                     hand.map((card, i) => (
                         <Card
+                            key={card.code}
                             stacked={true}
                             zIndex={i * 10}
                             pl={i * 15}
-                            isFlipped={false}
+                            isFlipped={card.isFlipped}
                             value={card.value}
                             suite={card.suite}
                             code={card.code}

@@ -4,6 +4,7 @@ import card_back_red from "../images/card_back_red.png";
 
 const PlayingCard = styled.div`
     position: ${props => (props.stacked ? "absolute" : "inherit")};
+    top: ${props => props.top + "px"}
     cursor: pointer;
     width: 120px;
     height: 160px;
@@ -38,6 +39,7 @@ class Card extends Component {
             isFlipped,
             handleClick,
             pl,
+            top,
             zIndex,
             stacked
         } = this.props;
@@ -45,6 +47,7 @@ class Card extends Component {
         return (
             <PlayingCard
                 pl={pl}
+                top={top}
                 stacked={stacked}
                 zIndex={zIndex}
                 className="playing-card"
